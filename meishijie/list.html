@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">	
+	<title>美食杰</title>
+	<!-- 图标 -->
+	<link rel="shortcut icon" href="images/tit.png">
+	<!-- css -->
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="iconfont/demo.css"/>
+	<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="css/list.css"/>
+	<script src="js/jquery_1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/list.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="detail">
+	<!-- header -->
+		<div id="header-wrap" class="over">
+			<div id="header" class="clear over">
+				<a href="index.html" class="header_logo left"></a>
+				<p class="search_top left"><input type="text" placeholder="请输入菜谱/食谱/菜单/作者" class="left"><input type="button" value="搜索" class="right"></p>
+				<ul class="login_item right clear over">
+					<a href="###" class="left logologin qqlogo">QQ登录</a>
+					<a href="###" class="left logologin webologo">微博登录</a>
+					<a href="register.html?register" class="left">注册</a>
+					<a href="register.html?login" class="left">登录</a>
+				</ul>
+				<!--搜索联想-->
+				<ul id="search_list">
+					<li>
+						<a href=""></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<!--nav-->
+		<div id="nav_wrap">
+			<ul id="nav" class="clear">
+				<li><a href="index.html">首页</a></li>
+				<li class="manutype nav1">
+					<a href="list.html">菜谱大全<i class="iconfont">&#xe78a;</i></a>
+					<div class="down">
+						<ul class="nav_menu">
+						</ul>						
+					</div>
+				</li>
+				<li class="manutype nav2">
+					<a href="">饮食健康<i class="iconfont">&#xe78a;</i></a>
+					<div class="down">
+						<ul class="nav_health">
+						</ul>
+					</div>
+				</li>
+				<li><a href="">美食菜单</a></li>
+				<li><a href="">家居馆</a></li>
+				<li><a href="" class="titp">美食达人<img src="images/tit.png" alt="" /></a></li>
+				<li><a href="">讨论组</a></li>
+				<li><a href="">手机版下载</a></li>
+			</ul>
+		</div>
+	<!--list-->		
+	<div id="list">	
+		<div class="list_menu">
+			<ul class="list_tit clear">
+				<li class="liclick"  cid = "1" pid="10001">菜式菜品</li>
+				<li cid = "10" pid="10002">中外菜系</li>
+				<li cid = "44" pid="10005">场景餐点</li>
+				<li cid = "82" pid="10010">汤羹饮品</li>
+				<li cid = "73" pid="10009">西点烘焙</li>
+				<li cid = "335" pid="10025">工艺菜品</li>
+				<li cid = "27" pid="10003">时令食材</li>
+				<li cid = "61" pid="10007">珍品菜肴</li>
+			</ul>
+			<div class="list_tit_box">
+				<h3>菜式菜品</h3>
+				<ul class="dis clear"></ul>
+				<ul class="clear"></ul>
+				<ul class="clear"></ul>
+				<ul class="clear"></ul>
+				<ul class="clear"></ul>
+				<ul class="clear"></ul>
+				<ul class="clear"></ul>
+				<ul class="clear"></ul>			
+			</div>
+		</div>
+		<div class="list_main clear">
+			<div class="list_main_tit">
+				<h3 class="dis">印象中的那些妈妈的味道</h3>
+				<h3 >了解世界餐饮文化，看中华八大菜系</h3>
+				<h3 >最恰当的时候选择最适合的餐点</h3>
+				<h3 >暖暖一杯粥，温暖脾胃</h3>
+				<h3 >烘焙甜点，甜蜜美满</h3>
+				<h3 >味觉，工艺大比拼</h3>
+				<h3 >新鲜、美味、口齿留香</h3>
+				<h3 >吃货小猪看过来~</h3>
+			</div>
+			<div class="list_main_left"></div>			
+			<div class="list_main_right">	
+				<div id="box" class="clear">
+			    	<!--<ul>
+			    		<li>
+							<a href="detail.html?id='+ list_arr[ind].id +'"><img src="'+list_arr[ind].albums[0]+'" alt="" /></a>
+							<div class="right_list">
+								<p class="right_info1">
+									<span class="carousel2_name"><a href="">"+list_arr[ind].title+"</a></span>
+									<span class="carousel2_support">110评论，1999人气</span>
+									<span class="carousel2_writer">梦小夕</span>
+								</p>
+								<p class="right_info1">
+									<span class="carousel2_step"><i class="iconfont">&#xe604;</i><a href="">收藏</a></span>
+									<span class="carousel2_style"><i class="iconfont">&#xe66c;&nbsp;</i><a href="detail.html?id='+ list_arr[ind].id +'">查看详情</a></span>
+								</p>
+							</div>
+						</li>
+			    	</ul>-->
+			    </div>
+			    <div id="page" class="clear">
+			    	<ul>
+			    		<!--<li>1</li>
+			    		<li>2</li>-->
+			    	</ul>
+	   			</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+		<div id="footer_wrap">
+			<div id="footer">
+				<div class="footer_top clear">
+					<div class="footer_top_left left">
+						<img src="images/common/logo/logo_f.png"/>
+						<p>中国，最大的菜谱库<span>800,000 篇</span></p>
+						<p>每月，用户访问数量<span>20,000,000 次</span></p>
+						<p>每年，菜谱被浏览量<span>36,000,000,000 次</span></p>
+						<p>现在，这些数字还在不断的增长着，欢迎您来一起使用美食杰</p>
+					</div>
+					<ul class="footer_top_right left clear">
+						<li><a href=""><img src="images/common/logo/logo_f_weobo.jpg" alt="" /><a href="">点击进入<br/>美食杰官方微博</a></a></li>
+						<li><a href=""><img src="images/common/logo/logo_f_qzone.jpg" alt="" /><a href="">点击进入<br/>美食杰QQ空间</a></a></li>
+						<li><a href=""><img src="images/common/logo/logo_f_wechat.jpg" alt="" /><a href="">扫描二维码添加<br/>美食杰为微信好友</a></a></li>
+						<li><a href=""><img src="images/common/logo/logo_f_app.jpg" alt="" /><a href="">扫描二维码下载<br/>美食杰手机客户端</a></a></li>
+					</ul>
+				</div>
+				<div class="footer_center">
+					<ul class="clear"></ul>
+				</div>
+				<div class="copy">
+					<ul class="clear">
+						<li><a href="">公司简介</a></li>
+						<li><a href="">企业文化</a></li>
+						<li><a href="">公司动态</a></li>
+						<li><a href="">免责声明</a></li>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">招贤纳士</a></li>
+						<li><a href="">商务合作</a></li>
+						<li><a href="">网站地图</a></li>
+						<li><a href="">友情链接</a></li>
+						<li><a href="">美食杰移动app</a></li>
+					</ul>
+					<p>京ICP证150335号/京公网安备11010802009977 Copyright &copy;2003-2016 MEISHIJ CO.,LTD.</p>
+				</div>
+			</div>
+		</div>
+	<!--bottom-->	
+		<div id="bottom_search_wrap">
+			<div id="up"><i class="iconfont">&#xf0033;</i></div>
+				<div class="bottom_search">
+				<button class="fixed"></button>
+				<form>
+					<input type="text" class="search_bot" placeholder="请输入菜谱、食材、作者"/>
+					<input type="button" value="搜索" class="search_btn" />
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
