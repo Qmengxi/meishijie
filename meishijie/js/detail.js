@@ -209,3 +209,28 @@ $(function(){
 			$(this).next().html(good)
 		})
 })
+$(function(){
+//	加入购物车
+	$(".detail_fav").mousedown(function(){
+		var cook =$.cookie('Username');
+		if(cook){
+//				判断购物车是否有内容
+			if($.cookie("joinlike")){
+				var obj = JSON.parse($.cookie("joinlike"))//有，获取内容
+			}else{
+				var obj = {};//没有，内容为空
+			}
+			
+			var num = obj[$(this).attr("did")]||0;//数量，obj中的did的值或者0；
+			
+			var did = $(this).attr("did");		//did为数据的did值
+			obj[did] = ++num;					//没有did的话，存入并数量加1，如果有的话，改变数值
+			var objTostr = JSON.stringify(obj);	//把对象转换为字符串
+			$.cookie("joinlike",objTostr);			//创建cook，名为joinlike，值为转换为字符串的对象
+			var cookieObj = JSON.parse($.cookie("joinlike"));
+			console.log(cookieObj);
+		}else{
+			alert("登录后才可以收藏哦~")
+		}
+	})
+})
