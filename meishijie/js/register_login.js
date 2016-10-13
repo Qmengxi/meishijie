@@ -38,16 +38,34 @@ $(function(){
 			console.log(phone_num)
 			var result=reg.test(phone_num);
 			if(result){
-				console.log("right")
-				$(".phone_reg").find("input[type=button]").addClass("button_change").prop("disabled",false)
-				$(".phone_reg").find(".check_tit2").css({"display":"block"})
-				$(".phone_reg").find(".check_tit1").css({"display":"none"})
-				$(".phone_reg").find(".check_tit3").css({"display":"none"})
+				$.ajax({
+					url:'http://datainfo.duapp.com/shopdata/getuser.php?userID='+phone_num,
+					type:'get',
+					dataType:"jsonp",
+					jsonCallback:"callback"
+				})
+				.done(function(data){
+					console.log(data)
+					if(data==0){
+						$(".phone_reg").find("input[type=button]").addClass("button_change").prop("disabled",false)
+						$(".phone_reg").find(".check_tit2").css({"display":"block"})
+						$(".phone_reg").find(".check_tit1").css({"display":"none"})
+						$(".phone_reg").find(".check_tit3").css({"display":"none"})		
+						$(".phone_reg").find(".check_tit4").css({"display":"none"})	
+					}	
+					else{
+						$(".phone_reg").find(".check_tit4").css({"display":"block"})	
+						$(".phone_reg").find(".check_tit1").css({"display":"none"})
+						$(".phone_reg").find(".check_tit2").css({"display":"none"})
+						$(".phone_reg").find(".check_tit3").css({"display":"none"})
+					}
+				})			
 			}else{
 				console.log("wrong")
 				$(".phone_reg").find(".check_tit1").css({"display":"block"})
 				$(".phone_reg").find(".check_tit2").css({"display":"none"})
 				$(".phone_reg").find(".check_tit3").css({"display":"none"})
+				$(".phone_reg").find(".check_tit4").css({"display":"none"})	
 			}
 		})
 	})
@@ -59,16 +77,43 @@ $(function(){
 			console.log(phone_num)
 			var result=reg.test(phone_num);
 			if(result){
-				console.log("right")
-				$(".email_reg").find("input[type=button]").addClass("button_change").prop("disabled",false)
-				$(".email_reg").find(".check_tit2").css({"display":"block"})
-				$(".email_reg").find(".check_tit1").css({"display":"none"})
-				$(".email_reg").find(".check_tit3").css({"display":"none"})
+				if(result){
+					$.ajax({
+						url:'http://datainfo.duapp.com/shopdata/getuser.php?userID='+phone_num,
+						type:'get',
+						dataType:"jsonp",
+						jsonCallback:"callback"
+					})
+					.done(function(data){
+						console.log(data)
+						if(data==0){
+							$(".email_reg").find("input[type=button]").addClass("button_change").prop("disabled",false)
+							$(".email_reg").find(".check_tit2").css({"display":"block"})
+							$(".email_reg").find(".check_tit1").css({"display":"none"})
+							$(".email_reg").find(".check_tit3").css({"display":"none"})
+							$(".email_reg").find(".check_tit4").css({"display":"none"})	
+						}	
+						else{
+							$(".email_reg").find(".check_tit4").css({"display":"block"})	
+							$(".email_reg").find(".check_tit1").css({"display":"none"})
+							$(".email_reg").find(".check_tit2").css({"display":"none"})
+							$(".email_reg").find(".check_tit3").css({"display":"none"})
+						}
+					})			
+				}else{
+					console.log("wrong")
+					$(".email_reg").find(".check_tit1").css({"display":"block"})
+					$(".email_reg").find(".check_tit2").css({"display":"none"})
+					$(".email_reg").find(".check_tit3").css({"display":"none"})
+					$(".email_reg").find(".check_tit4").css({"display":"none"})	
+				}
+				
 			}else{
 				console.log("wrong")
 				$(".email_reg").find(".check_tit1").css({"display":"block"})
 				$(".email_reg").find(".check_tit2").css({"display":"none"})
 				$(".email_reg").find(".check_tit3").css({"display":"none"})
+				$(".email_reg").find(".check_tit4").css({"display":"none"})	
 			}
 		})
 	})

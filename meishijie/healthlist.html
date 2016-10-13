@@ -6,10 +6,17 @@
 	<!-- 图标 -->
 	<link rel="shortcut icon" href="images/tit.png">
 	<!-- css -->
-	<style type="text/css">
-		#nav .nav1>a{
+	<style>
+		#detail #nav .nav2>a{
 			height:72px;
 			border-bottom:4px solid #ff3232 ;
+		}	
+		#detail .list_main_right,.list_main_right #box {
+			width:990px;
+			margin:0 auto;
+		}	
+		#detail .list_main_right #box li{
+			    margin-left: 10px;
 		}
 	</style>
 	<link rel="stylesheet" href="css/common.css">
@@ -19,7 +26,7 @@
 	<script src="js/jquery_1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/list.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/health.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<div id="detail">
@@ -71,17 +78,16 @@
 	<div id="list">	
 		<div class="list_menu">
 			<ul class="list_tit clear">
-				<li class="liclick"  cid = "1" pid="10001">菜式菜品</li>
-				<li cid = "10" pid="10002">中外菜系</li>
-				<li cid = "44" pid="10005">场景餐点</li>
-				<li cid = "82" pid="10010">汤羹饮品</li>
-				<li cid = "73" pid="10009">西点烘焙</li>
-				<li cid = "335" pid="10025">工艺菜品</li>
-				<li cid = "27" pid="10003">时令食材</li>
-				<li cid = "61" pid="10007">珍品菜肴</li>
+				<li class="liclick"  cid = "162" pid="10012">人群膳食</li>
+				<li cid = "165" pid="10013">疾病调理</li>
+				<li cid = "36" pid="10004">功能性调理</li>
+				<li cid = "261" pid="10021">节日庆典</li>
+				<li cid = "278" pid="10022">节气佳品</li>
+				<li cid = "228" pid="10019">米面豆乳</li>
+				<li cid = "222" pid="10017">果蔬调理</li>
 			</ul>
 			<div class="list_tit_box">
-				<h3>菜式菜品</h3>
+				<h3>人群膳食</h3>
 				<ul class="dis clear"></ul>
 				<ul class="clear"></ul>
 				<ul class="clear"></ul>
@@ -94,7 +100,7 @@
 		</div>
 		<div class="list_main clear">
 			<div class="list_main_tit">
-				<h3 class="dis">唯有美食不可辜负</h3>
+				<h3 class="dis">辰时一定要吃早餐，此时肠胃当令需要补充营养</h3>
 				<!--<h3 >了解世界餐饮文化，看中华八大菜系</h3>
 				<h3 >最恰当的时候选择最适合的餐点</h3>
 				<h3 >暖暖一杯粥，温暖脾胃</h3>
@@ -102,8 +108,7 @@
 				<h3 >味觉，工艺大比拼</h3>
 				<h3 >新鲜、美味、口齿留香</h3>
 				<h3 >吃货小猪看过来~</h3>-->
-			</div>
-			<div class="list_main_left"></div>			
+			</div>		
 			<div class="list_main_right">	
 				<div id="box" class="clear">
 			    	<!--<ul>

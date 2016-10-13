@@ -17,7 +17,7 @@ $(function(){
 //			console.log(location.search.replace(/\?/,""),not)
 			if(!idmenu&&!cidmenu){//不是菜单详情页
 				console.log("not")
-				name ="data=cid=1";
+				name ="data=cid=28";
 				cidajax()	//cid ajax
 			}
 			else if(idmenu){ //是菜单详情页
@@ -63,6 +63,21 @@ $(function(){
 	//导航菜单部分
 	function list_menu(data){
 		console.log(data)
+//		刚进入页面
+		$.ajax({
+			type:"POST",
+			url:"php/pidlist.php",
+			data:"data=parentid=10012"
+		}).done(function(data){
+			var data = JSON.parse(data)
+			cidstr=""
+			var cidlist_arr = data.result[0].list;
+			$.each(cidlist_arr, function(index,el) {
+				console.log(el,el.id)
+				cidstr +="<li cid='"+ el.id +"'><a href='####'>"+el.name +"</a></li>" 
+			});
+			$(".list_tit_box ul").eq(0).html(cidstr)
+		})
 	//	大标题鼠标滑过
 		$(".list_tit").on("mouseenter","li",function(){
 			$(this).addClass("lihover").siblings().removeClass("lihover")
@@ -114,7 +129,7 @@ $(function(){
 	function list(data){	
 		var list_arr = data.result.data;
 		var list_len = list_arr.length;		//总个数
-		var num =9; 					 	//每一页的个数
+		var num =8; 					 	//每一页的个数
 		var page = 1; 						//第几页
 		var pagestr=""
 		var boxstr=""

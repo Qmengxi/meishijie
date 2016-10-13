@@ -19,14 +19,14 @@ $(window).ready(function(){
 
 
 //			navAJAX请求  
-//				$.ajax({
-//					url:"php/menutype.php",
-//					type:"POST"
-//				}).done(function(data){
-//					var data = JSON.parse(data);
-//					console.log(data)				
-//					type_list(data);				
-//				})	
+				$.ajax({
+					url:"php/menutype.php",
+					type:"POST"
+				}).done(function(data){
+					var data = JSON.parse(data);
+					console.log(data)				
+					type_list(data);				
+				})	
 				function type_list(data){
 					var menuStr=""//菜谱大全
 					var healthStr=""//饮食健康
@@ -34,18 +34,19 @@ $(window).ready(function(){
 					var listStr=""
 					var typelist = data.result
 					$.each(typelist,function(index,typelist){
-//						console.log(index,typelist)
+						console.log(index,typelist)
 						if(index==0){//菜式菜品
 							var menulist=typelist.list
+							console.log((menulist))
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								listStr+="<li cid='"+ menulist.id +"'><a href='####'>"+menulist.name+"</a></li>"
 							})
 							menuStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
-							$(".list_tit_box ul").eq(0).html(listStr)
+//							$(".list_tit_box ul").eq(0).html(listStr)
 						}
 						if(index==1){//菜系
 							menulistStr=""
@@ -54,10 +55,10 @@ $(window).ready(function(){
 							var menulist=typelist.list
 							$.each(menulist,function(mindex,menulist){
 								if(mindex<=5){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								if(mindex>=6&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								
 							})
@@ -69,7 +70,7 @@ $(window).ready(function(){
 							listStr="";
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								
 							})
@@ -80,7 +81,7 @@ $(window).ready(function(){
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
 							healthStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
@@ -91,25 +92,18 @@ $(window).ready(function(){
 							listStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								
 							})
 							menuStr+='<li><h4><a href="">用餐'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
-						}
-						if(index==6){//菜肴
-							var menulist=typelist.list
-							listStr=""
-							$.each(menulist,function(mindex,menulist){
-								
-							})
 						}
 						if(index==7){//主食
 							var menulist=typelist.list
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
 							menuStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
@@ -120,7 +114,7 @@ $(window).ready(function(){
 							listStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								
 							})
@@ -131,7 +125,7 @@ $(window).ready(function(){
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
 							healthStr+='<li><h4><a href="">适用'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
@@ -141,7 +135,7 @@ $(window).ready(function(){
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
 							healthStr+='<li><h4><a href="">治愈'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
@@ -151,7 +145,7 @@ $(window).ready(function(){
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
-									menulistStr+='<li><a href="">'+menulist.name+'</a></li>'
+									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
 							healthStr+='<li><h4><a href="">'+typelist.name+'佳品</a></h4><ul>'+menulistStr+'</ul></li>'
