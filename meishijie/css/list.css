@@ -73,12 +73,6 @@
     text-align: center;
     display: none;
 }
-.list_main_left{
-	width:232px;
-	background: #cbf;
-	min-height:100px;
-	float: left;
-}
 .list_main_right{
 	width:756px;
 	float: right;
@@ -185,4 +179,99 @@
     color: #666;
     font-size: 14px;
     cursor: pointer;
+}
+/*左侧选项卡,手风琴*/
+.list_main_left{
+	width:232px;
+	background: #fff;
+	min-height: 100px;
+	float: left;
+}
+.list_main_left .tab li{
+	width:116px;
+	height:50px;
+	line-height: 50px;
+	font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    color:#000;
+    float: left;
+    border-bottom: 1px solid #ddd;
+}
+.list_main_left .tab .tabclick{
+	color: #f00;
+	background: #fbfbfb;
+}
+.list_main_left .pagebox1 dt,.pagebox2 dt{
+	display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    width: 232px;
+    padding-left: 20px;
+}
+.list_main_left .pagebox1 dd,.pagebox2 dd{
+	display: block;
+	padding: 14px 0px 6px 14px;
+    width: 218px;
+    background: #fafafa;
+    border-bottom: 1px solid #ddd;
+    display: none;
+    
+}
+.list_main_left .pagebox1 dd a{
+	float: left;
+    margin: 0px 8px 8px 0px;
+    display: block;
+    height: 30px;
+    width: 96px;
+    border: 1px solid #eee;
+    background: #fff;
+    color: #333;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+}
+.pagebox1,.pagebox2{
+	display: none;
+}
+.moreclick{
+	display: block;
+	height: 30px;
+    line-height: 30px;
+    color: #666;
+    text-align: center;
+    padding: 7px;
+    border-top: 1px solid #eee;
+    display: none;
+    cursor: pointer;
+}
+.morechoose{
+	display: none;
+}
+.moreclick span{
+	display: none;
+	cursor: pointer;
+}
+.pagebox2 dd{
+	display: block!important;
+}
+.pagebox2 dd a{
+    margin: 0px 8px 8px 0px;
+    display: block;
+    height: 30px;
+    width: 202px;
+    border: 1px solid #eee;
+    background: #fff;
+    color: #333;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden;
+}
+.pagebox2 dd a:hover{
+	border:1px solid #999;
 }
