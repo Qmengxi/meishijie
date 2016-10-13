@@ -63,6 +63,21 @@ $(function(){
 	//导航菜单部分
 	function list_menu(data){
 		console.log(data)
+		//		刚进入页面
+		$.ajax({
+			type:"POST",
+			url:"php/pidlist.php",
+			data:"data=parentid=10001"
+		}).done(function(data){
+			var data = JSON.parse(data)
+			cidstr=""
+			var cidlist_arr = data.result[0].list;
+			$.each(cidlist_arr, function(index,el) {
+				console.log(el,el.id)
+				cidstr +="<li cid='"+ el.id +"'><a href='####'>"+el.name +"</a></li>" 
+			});
+			$(".list_tit_box ul").eq(0).html(cidstr)
+		})
 	//	大标题鼠标滑过
 		$(".list_tit").on("mouseenter","li",function(){
 			$(this).addClass("lihover").siblings().removeClass("lihover")
