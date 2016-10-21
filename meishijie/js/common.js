@@ -19,14 +19,14 @@ $(window).ready(function(){
 
 
 //			navAJAX请求  
-				$.ajax({
-					url:"php/menutype.php",
-					type:"POST"
-				}).done(function(data){
-					var data = JSON.parse(data);
-					console.log(data)				
-					type_list(data);				
-				})	
+//				$.ajax({
+//					url:"php/menutype.php",
+//					type:"POST"
+//				}).done(function(data){
+//					var data = JSON.parse(data);
+//					console.log(data)				
+//					type_list(data);				
+//				})	
 				function type_list(data){
 					var menuStr=""//菜谱大全
 					var healthStr=""//饮食健康
@@ -43,10 +43,8 @@ $(window).ready(function(){
 								if(mindex>=0&&mindex<=8){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
-								listStr+="<li cid='"+ menulist.id +"'><a href='####'>"+menulist.name+"</a></li>"
 							})
-							menuStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
-//							$(".list_tit_box ul").eq(0).html(listStr)
+							menuStr+='<li><h4>'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==1){//菜系
 							menulistStr=""
@@ -62,7 +60,7 @@ $(window).ready(function(){
 								}
 								
 							})
-							menuStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							menuStr+='<li><h4>'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==2){//食材
 							var menulist=typelist.list;
@@ -74,7 +72,7 @@ $(window).ready(function(){
 								}
 								
 							})
-							menuStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							menuStr+='<li><h4>'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==3){
 							var menulist=typelist.list
@@ -84,19 +82,19 @@ $(window).ready(function(){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
-							healthStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							healthStr+='<li><h4>'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==4){//场景
 							var menulist=typelist.list
 							menulistStr=""
 							listStr=""
 							$.each(menulist,function(mindex,menulist){
-								if(mindex>=0&&mindex<=8){
+								if(mindex>=0&&mindex<=5){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								
 							})
-							menuStr+='<li><h4><a href="">用餐'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							menuStr+='<li><h4>用餐'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==7){//主食
 							var menulist=typelist.list
@@ -106,29 +104,29 @@ $(window).ready(function(){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
-							menuStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							menuStr+='<li><h4>'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==8){//西点
 							var menulist=typelist.list
 							menulistStr=""
 							listStr=""
 							$.each(menulist,function(mindex,menulist){
-								if(mindex>=0&&mindex<=8){
+								if(mindex>=0&&mindex<=5){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="list.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 								
 							})
-							menuStr+='<li><h4><a href="">'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							menuStr+='<li><h4>'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==11){//人群
 							var menulist=typelist.list
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
-								if(mindex>=0&&mindex<=8){
+								if(mindex>=0&&mindex<=7){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
-							healthStr+='<li><h4><a href="">适用'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							healthStr+='<li><h4>适用'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==12){//疾病
 							var menulist=typelist.list
@@ -138,7 +136,7 @@ $(window).ready(function(){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
-							healthStr+='<li><h4><a href="">治愈'+typelist.name+'</a></h4><ul>'+menulistStr+'</ul></li>'
+							healthStr+='<li><h4>治愈'+typelist.name+'</h4><ul>'+menulistStr+'</ul></li>'
 						}
 						if(index==21){//节气
 							var menulist=typelist.list
@@ -148,7 +146,7 @@ $(window).ready(function(){
 									menulistStr+='<li cid="'+menulist.id+'"><a href="healthlist.html?cid='+menulist.id+'">'+menulist.name+'</a></li>'
 								}
 							})
-							healthStr+='<li><h4><a href="">'+typelist.name+'佳品</a></h4><ul>'+menulistStr+'</ul></li>'
+							healthStr+='<li><h4>'+typelist.name+'佳品</h4><ul>'+menulistStr+'</ul></li>'
 						}
 					})
 					$(".nav_menu").html(menuStr)
@@ -222,32 +220,6 @@ $(window).ready(function(){
 				})
 			})
 })
-
-//加入购物车
-//$(function(){
-//	$(".detail_fav").mousedown(function(){
-//		var loc =location.search.replace(/\?/,"").split(/\&/)
-//		for (var x=0;x<loc.length;x++) {
-//			for (var y=0;y<loc[x].split(/\=/).length;y++) {
-//				if(loc[x].split(/\=/)[y]=="id"){
-//					name = "data="+loc[x]
-//					$.ajax({
-//						type:"POST",
-//						url:"php/detail.php",
-//						data:name
-//					}).done(function(data){
-//						var data = JSON.parse(data)
-//						var data = data.result.data[0]
-//						console.log(data)
-//						detail(data)			
-//					})	
-//				}
-//			}		
-//		}
-//	})
-//})
-
-
 //搜索联想词
 $(function(){
 	$(".search_top input[type=text]").keyup(function(){

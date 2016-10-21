@@ -204,6 +204,11 @@ img{
 	display: none;
 	z-index:10;
 }
+#nav .down img,#nav .down img{
+	position: absolute;
+	right:-60px;
+	bottom:-30px;
+}
 #nav .down .nav_menu>li,#nav .down .nav_health>li{
 	min-width:40%
 }
@@ -222,9 +227,7 @@ img{
 	line-height:22px;	
 	font-size: 17px;;
 	font-weight:normal;
-}
-#nav .down h4 a{
-	color:#ff3232
+	color:#ff3232;
 }
 #nav .down .nav_menu>li>ul>li a,#nav .down .nav_health>li>ul>li a{
 	padding: 1px;

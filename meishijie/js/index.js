@@ -7,7 +7,7 @@
 			var str="";
 //		循环,把元素插入到对象中
 			$.each(data,function(index,list){
-				str+="<li><a href='list.html?menu="+data[index].name+"' target='_blank'><img src='"+data[index].src+"'/></a><div><p class='recommend_name'>"+data[index].name+"</p><p class='recommend_decoration'>"+data[index].decoration+"</p><p><span>"
+				str+="<li><a href='detail.html?id="+data[index].id+"' target='_blank'><img src='"+data[index].src+"'/></a><div><p class='recommend_name'>"+data[index].name+"</p><p class='recommend_decoration'>"+data[index].decoration+"</p><p><span>"
 				+data[index].good+"<img src='"+data[index].img+"' alt='' /></span></div></li>"
 			})
 			$(".recommend_show").html(str);
@@ -145,38 +145,76 @@
 	})
 //	carousel1
 	$(function(){
-		var timer1=setInterval(move1,3000);
-		var i=0;
-		var preWidth = 988;
-		var len = 4;			
-		$(".carousel1_right").mousedown(function(){	
-			clearInterval(timer1);
-			move1();
-			timer1=setInterval(move1,3000);
+		$.ajax({
+			type:"get",
+			url:"json/carousel1.json",
+		}).done(function(data){
+			var str="";
+			$.each(data,function(index,el){
+				str+='<li>'+
+						'<a href="">'+
+							'<img src="'+data[index].src+'" alt="" />'+
+							'<span class="carousel1_back"></span>'+
+							'<p>'+
+								'<span class="carousel1_tit">'+
+									'<a href="">'+data[index].name+'</a>'+
+								'</span>'+
+								'<span class="carousel1_dec">'+data[index].decoration+'</span>'+
+							'</p>'+
+						'</a>'+
+					'</li>'
+			})
+			$(".carousel1_wrap ul").html(str)
+			
+//			获取li宽度,计算ul宽度
+			var $li = $(".carousel1_wrap ul li")
+			var $ul = $(".carousel1_wrap ul")
+			var preWidth = $li.outerWidth()
+			var preHeight = $li.outerHeight()
+			var len = $li.length/6;
+			$li.css("width",preWidth);
+			$ul.css({"width":preWidth*3,"margin-left":0});		
+			var timer1=setInterval(move1,3000);
+			var i=0;		
+			$(".carousel1_right").mousedown(function(){	
+				clearInterval(timer1);
+				move1();
+				timer1=setInterval(move1,3000);
+			})
+			$(".carousel1_left").mousedown(function(){
+				clearInterval(timer1);
+				i=i-2;
+				move1();
+				timer1=setInterval(move1,3000);
+			})
+			function move1(){	
+				i+=1;			
+				if(i==len){			
+					i=1;
+					$(".carousel1_wrap").css({"width":preWidth*len,"margin-left":0});//显示第6张，瞬间显示第1张				
+				}
+				if(i==len-1){
+					$(".carousel1_index a").eq(0).addClass("cur").siblings().removeClass()
+				}
+				if(i==-1){
+					i=2
+					$(".carousel1_wrap").css("margin-left",-preWidth*3)//显示第1张，瞬间显示第6张
+				}
+				$(".carousel1_wrap").stop().animate({"width":preWidth*len,"margin-left":-preWidth*(i)},700);
+				$(".carousel1_index a").eq(i).addClass("cur").siblings().removeClass()
+			}
 		})
-		$(".carousel1_left").mousedown(function(){
-			clearInterval(timer1);
-			i=i-2;
-			move1();
-			timer1=setInterval(move1,3000);
-		})
-		function move1(){	
-			i+=1;			
-			if(i==len){			
-				i=1;
-				$(".carousel1_wrap").css({"width":preWidth*len,"margin-left":0});//显示第6张，瞬间显示第1张				
-			}
-			if(i==len-1){
-				$(".carousel1_index a").eq(0).addClass("cur").siblings().removeClass()
-			}
-			if(i==-1){
-				i=2
-				$(".carousel1_wrap").css("margin-left",-preWidth*3)//显示第1张，瞬间显示第6张
-			}
-			$(".carousel1_wrap").stop().animate({"width":preWidth*len,"margin-left":-preWidth*(i)},700);
-			$(".carousel1_index a").eq(i).addClass("cur").siblings().removeClass()
-		}
 	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 //	carousel2
 	$(function(){
 		$(".carousel2_menu_deco").mouseenter(function(){

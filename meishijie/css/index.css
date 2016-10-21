@@ -207,7 +207,6 @@
 /*carousel1*/
 #carousel1_show{
 	position: relative;
-	/*overflow: hidden;*/
 }
 .carousel1_show1{
 	overflow: hidden;
@@ -219,12 +218,12 @@
 	flex-flow: row nowrap;
 }
 .carousel1_wrap ul{
-	width:988px;
+	/*width:988px;*/
 	height:596px;
 	display: flex;
 	justify-content: space-between;
 	align-content:space-between;
-	flex-flow: row wrap;	
+	flex-flow: row wrap;
 }
 .carousel1_wrap ul li{
 	width: 316px;
