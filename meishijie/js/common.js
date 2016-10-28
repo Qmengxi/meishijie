@@ -16,17 +16,19 @@ $(window).ready(function(){
 				menu =$("#header").find("input[type=text]").val();
 				location.href="list.html?menu="+menu
 			})
-
+			$("#bottom_search_wrap").find("input[type=button]").click(function(){
+				menu =$("#bottom_search_wrap").find("input[type=text]").val()
+				location.href="list.html?menu="+menu
+			})
 
 //			navAJAX请求  
-//				$.ajax({
-//					url:"php/menutype.php",
-//					type:"POST"
-//				}).done(function(data){
-//					var data = JSON.parse(data);
-//					console.log(data)				
-//					type_list(data);				
-//				})	
+				$.ajax({
+					url:"php/menutype.php",
+					type:"POST"
+				}).done(function(data){
+					var data = JSON.parse(data);			
+					type_list(data);				
+				})	
 				function type_list(data){
 					var menuStr=""//菜谱大全
 					var healthStr=""//饮食健康
@@ -34,10 +36,8 @@ $(window).ready(function(){
 					var listStr=""
 					var typelist = data.result
 					$.each(typelist,function(index,typelist){
-						console.log(index,typelist)
 						if(index==0){//菜式菜品
 							var menulist=typelist.list
-							console.log((menulist))
 							menulistStr=""
 							$.each(menulist,function(mindex,menulist){
 								if(mindex>=0&&mindex<=8){
@@ -163,13 +163,11 @@ $(window).ready(function(){
 		})
 	})
 	$(".manutype").mouseenter(function(){
-		console.log(1)
 		$(this).find(".down").css({
 			"display":"block"
 		})
 	})
 	$(".manutype").mouseleave(function(){
-		console.log(2)
 		$(this).find(".down").css({
 			"display":"none"
 		})
@@ -207,18 +205,7 @@ $(window).ready(function(){
     	}
     })
     
-    $("#bottom_search_wrap").find("input[type=button]").click(function(){
-				name = "data=menu="+$("#bottom_search_wrap").find("input[type=text]").val()
-				console.log(name)
-				$.ajax({
-					type:"POST",
-					url:"php/search.php",
-					data:name
-				}).done(function(data){
-					var data = JSON.parse(data)
-					console.log(data)
-				})
-			})
+
 })
 //搜索联想词
 $(function(){
@@ -228,14 +215,12 @@ $(function(){
 		document.body.appendChild(oScript);
 		document.body.removeChild(oScript);
 		$(".search_top input[type=text]").blur(function(){
-			console.log("blur")
 			$("#search_list").css({"display":"none"})
 		})
 	})
 	
 	$("#search_list").on("mouseenter","li",function(){
 		$(this).addClass("lienter").siblings().removeClass("lienter");
-		console.log($(this).html())
 	})
 	$("#search_list").on("mousedown","li",function(){
 		$(".search_top input[type=text]").val($(this).html())
@@ -252,7 +237,6 @@ function hhl(data) {
 		oList.innerHTML = html;
 
        $("#search_list").find("li").click(function(){
-       console.log($("#search_list").find("li"))
 	   $("#search_text").val($(this).html())
 })
 	

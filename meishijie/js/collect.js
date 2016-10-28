@@ -21,9 +21,7 @@ $(function(){
 	}else{
 		var like_str=""
 		var cookieObj = JSON.parse($.cookie("joinlike"));
-		console.log(cookieObj);
 		$.each(cookieObj,function(key,value){		
-			console.log(key,value)
 			var name="data=id="+key;
 			$.ajax({
 				type:"POST",
@@ -31,7 +29,6 @@ $(function(){
 				data:name
 			}).done(function(data){
 				var data = JSON.parse(data).result.data[0]
-//				console.log(data)
 				like_str+='<li del="'+data.id+'">'+
 							'<a href="">'+
 							'<a href="detail.html?id='+ data.id +'"><img src="'+data.albums[0]+'" alt="" /></a>'+
@@ -52,7 +49,6 @@ $(function(){
 				$(".del").mousedown(function(){
 					var del = $(this).parents().attr("del")
 					delete cookieObj[del];
-					console.log(del,cookieObj)
 					var objTostr = JSON.stringify(cookieObj);	//把对象转换为字符串
 					$.cookie("joinlike",objTostr);			//创建cook，名为joinlike，值为转换为字符串的对象
 					$(this).parent().remove();				//删除li

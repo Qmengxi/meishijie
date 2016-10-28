@@ -35,7 +35,6 @@ $(function(){
 		$(this).keyup(function(){
 			var reg=/^1(3|4|5|7|8)\d{9}$/;
 			var phone_num = $(this).val();
-			console.log(phone_num)
 			var result=reg.test(phone_num);
 			if(result){
 				$.ajax({
@@ -45,7 +44,6 @@ $(function(){
 					jsonCallback:"callback"
 				})
 				.done(function(data){
-					console.log(data)
 					if(data==0){
 						$(".phone_reg").find("input[type=button]").addClass("button_change").prop("disabled",false)
 						$(".phone_reg").find(".check_tit2").css({"display":"block"})
@@ -61,7 +59,6 @@ $(function(){
 					}
 				})			
 			}else{
-				console.log("wrong")
 				$(".phone_reg").find(".check_tit1").css({"display":"block"})
 				$(".phone_reg").find(".check_tit2").css({"display":"none"})
 				$(".phone_reg").find(".check_tit3").css({"display":"none"})
@@ -74,7 +71,6 @@ $(function(){
 		$(this).keyup(function(){
 			var reg=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 			var phone_num = $(this).val();
-			console.log(phone_num)
 			var result=reg.test(phone_num);
 			if(result){
 				if(result){
@@ -85,7 +81,6 @@ $(function(){
 						jsonCallback:"callback"
 					})
 					.done(function(data){
-						console.log(data)
 						if(data==0){
 							$(".email_reg").find("input[type=button]").addClass("button_change").prop("disabled",false)
 							$(".email_reg").find(".check_tit2").css({"display":"block"})
@@ -101,7 +96,6 @@ $(function(){
 						}
 					})			
 				}else{
-					console.log("wrong")
 					$(".email_reg").find(".check_tit1").css({"display":"block"})
 					$(".email_reg").find(".check_tit2").css({"display":"none"})
 					$(".email_reg").find(".check_tit3").css({"display":"none"})
@@ -109,7 +103,6 @@ $(function(){
 				}
 				
 			}else{
-				console.log("wrong")
 				$(".email_reg").find(".check_tit1").css({"display":"block"})
 				$(".email_reg").find(".check_tit2").css({"display":"none"})
 				$(".email_reg").find(".check_tit3").css({"display":"none"})
@@ -127,21 +120,18 @@ $(function(){
 			var charIndex = Math.floor(Math.random()*36); 
 			code +=selectChar[charIndex]; 
 		}   	
-		console.log(code)
 		$(".verification").html(code)
 	})
 	$(".check_box h3 span").click(function(){
 		$(".back_wrap").css({"display":"none"});
 	})
 	$(".check_box form a").click(function(){
-		console.log(1)
 		var code = "";
 		var selectChar = new Array('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');		
 		for (i=0;i<4;i++) {
 			var charIndex = Math.floor(Math.random()*36); 
 			code +=selectChar[charIndex]; 
 		}   	
-		console.log(code)
 		$(".verification").html(code)
 	})
 	$(".check_box form input[type=button]").click(function(){
@@ -241,15 +231,12 @@ $(function(){
 			if($(".phone_reg").find('input[type=text]').val()!=""&&$(".phone_reg").find("input[type=password]").val().length>=6&&$(".phone_reg").find("input[type=password]").val().length<=16&&$(".phone_reg").find("input[type=checkbox]").prop("checked")==true){			
 				var userphone = $('.userphone').val();
 				var passWord = $('.phone_reg input[type=password]').val();
-				console.log(userphone)
-				console.log(passWord)
 				$.ajax({
 					url:'http://datainfo.duapp.com/shopdata/userinfo.php?status=register&userID='+userphone+'&password='+passWord,
 					type: 'POST',
 				})
 				.done(function(data){
 					if(data==1){
-						console.log(data)
 						location.href="register.html?login";							
 					}
 					else if(data==0){
@@ -267,15 +254,12 @@ $(function(){
 			if($(".useremail").find('input[type=text]').val()!=""&&$(".email_reg").find("input[type=password]").val().length>=6&&$(".email_reg").find("input[type=password]").val().length<=16&&$(".email_reg").find("input[type=checkbox]").prop("checked")==true){			
 				var useremail = $('.useremail').val();
 				var passWord = $('.email_reg input[type=password]').val();
-				console.log(useremail)
-				console.log(passWord)
 				$.ajax({
 					url:'http://datainfo.duapp.com/shopdata/userinfo.php?status=register&userID='+useremail+'&password='+passWord,
 					type: 'POST',
 				})
 				.done(function(data){
-					if(data==1){
-						console.log(1)		
+					if(data==1){	
 						location.href="register.html?login";						
 					}
 					else if(data==0){
@@ -327,8 +311,6 @@ $(function(){
 	$(".login input[type=submit]").click(function(event) {
 		var userName = $('.login  input[type=text]').val();
 		var passWord = $('.login  input[type=password]').val();
-		console.log(userName)
-		console.log(passWord)
 		$.ajax({
 			url: 'http://datainfo.duapp.com/shopdata/userinfo.php?status=login&userID='+userName+'&password='+passWord,
 			type: 'POST',

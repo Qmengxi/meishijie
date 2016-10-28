@@ -1,2 +1,5 @@
 # meishijie
-This is a web about meishije.
+本demo利用聚合数据（https://www.juhe.cn/）提供的数据信息、百度搜索接口提供的数据信息、阿里图标库提供的图标，模仿美食杰（http://www.meishij.net/）页面布局完成。
+demo制作过程中，使用了js，JQ，html，css，html5，css3等知识内容主要实现了登录、注册、收藏、评论、查询等功能。
+demo中，包含主页、列表页、详情页及收藏页，加入了轮播图、选项卡、手风琴等效果使用户体验更佳。
+demo中，首页部分多为自己手写的json数据，其他页面则使用请求头进行跨域访问聚合数据数据信息。

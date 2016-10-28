@@ -57,7 +57,6 @@
 				show()
 			})	
 			$("#recom_wrap").mouseleave(function(){
-				console.log("leave")
 				$(".clickleft").css({
 					"background-position":"0 6px"
 				})
@@ -150,30 +149,29 @@
 			url:"json/carousel1.json",
 		}).done(function(data){
 			var str="";
+			var i=1;
 			$.each(data,function(index,el){
 				str+='<li>'+
 						'<a href="">'+
 							'<img src="'+data[index].src+'" alt="" />'+
 							'<span class="carousel1_back"></span>'+
 							'<p>'+
-								'<span class="carousel1_tit">'+
-									'<a href="">'+data[index].name+'</a>'+
-								'</span>'+
+								'<span class="carousel1_tit">'+data[index].name+'</span>'+
 								'<span class="carousel1_dec">'+data[index].decoration+'</span>'+
 							'</p>'+
 						'</a>'+
 					'</li>'
+				if((index+1)==6*i){
+					$(".carousel1_wrap ul:nth-of-type("+i+")").html(str);
+					i++;
+					str="";
+				}
 			})
-			$(".carousel1_wrap ul").html(str)
 			
 //			获取li宽度,计算ul宽度
-			var $li = $(".carousel1_wrap ul li")
 			var $ul = $(".carousel1_wrap ul")
-			var preWidth = $li.outerWidth()
-			var preHeight = $li.outerHeight()
-			var len = $li.length/6;
-			$li.css("width",preWidth);
-			$ul.css({"width":preWidth*3,"margin-left":0});		
+			var preWidth = $ul.outerWidth()
+			var len = 4;
 			var timer1=setInterval(move1,3000);
 			var i=0;		
 			$(".carousel1_right").mousedown(function(){	
@@ -191,21 +189,21 @@
 				i+=1;			
 				if(i==len){			
 					i=1;
-					$(".carousel1_wrap").css({"width":preWidth*len,"margin-left":0});//显示第6张，瞬间显示第1张				
+					$(".carousel1_wrap").css({"width":preWidth*len,"margin-left":0});
 				}
 				if(i==len-1){
 					$(".carousel1_index a").eq(0).addClass("cur").siblings().removeClass()
 				}
 				if(i==-1){
 					i=2
-					$(".carousel1_wrap").css("margin-left",-preWidth*3)//显示第1张，瞬间显示第6张
+					$(".carousel1_wrap").css("margin-left",-preWidth*3)
 				}
 				$(".carousel1_wrap").stop().animate({"width":preWidth*len,"margin-left":-preWidth*(i)},700);
 				$(".carousel1_index a").eq(i).addClass("cur").siblings().removeClass()
 			}
 		})
 	})
-	
+//	
 	
 	
 	
@@ -240,7 +238,6 @@
 		})
 		function move2(){
 			j+=1;	
-			console.log(j)
 			if(j==len){			
 				j=1;
 				$(".carousel2_wrap").css({"width":preWidth*len,"margin-left":0});		

@@ -14,21 +14,17 @@ $(function(){
 			var idmenu = reg1.test(location.search.replace(/\?/,""))
 			var cidmenu =  reg2.test(location.search.replace(/\?/,""))
 			var tith3 =  reg3.test(location.search.replace(/\?/,""))
-//			console.log(location.search.replace(/\?/,""),not)
 			if(!idmenu&&!cidmenu){//不是菜单详情页
-				console.log("not")
 				name ="data=cid=28";
 				cidajax()	//cid ajax
 			}
 			else if(idmenu){ //是菜单详情页
-				console.log(("yes"))
 				name = "data="+loc[x];
 				var h3Html =decodeURI(loc[x].split(/\=/)[1])//转码，解密
 				$(".list_main_tit h3:first-child").html(h3Html)
 				reajax()	//搜索ajax
 			}
 			else if(cidmenu){ //是菜单详情页
-				console.log(("yes"))
 				name = "data="+loc[x];
 				cidajax()	//搜索ajax
 			}
@@ -42,7 +38,6 @@ $(function(){
 			data:name
 		}).done(function(data){
 			var data = JSON.parse(data)
-//			console.log(data)	
 			list_menu(data)//菜单导航
 			list(data)//列表分页
 		})
@@ -54,15 +49,13 @@ $(function(){
 			url:"php/cidlist.php",
 			data:name
 		}).done(function(data){
-			var data = JSON.parse(data)
-//			console.log(data)	
+			var data = JSON.parse(data)	
 			list_menu(data)//菜单导航
 			list(data)//列表分页
 		})
 	}
 	//导航菜单部分
 	function list_menu(data){
-		console.log(data)
 //		刚进入页面
 		$.ajax({
 			type:"POST",
@@ -73,7 +66,6 @@ $(function(){
 			cidstr=""
 			var cidlist_arr = data.result[0].list;
 			$.each(cidlist_arr, function(index,el) {
-				console.log(el,el.id)
 				cidstr +="<li cid='"+ el.id +"'><a href='####'>"+el.name +"</a></li>" 
 			});
 			$(".list_tit_box ul").eq(0).html(cidstr)
@@ -112,7 +104,6 @@ $(function(){
 				cidstr=""
 				var cidlist_arr = data.result[0].list;
 				$.each(cidlist_arr, function(index,el) {
-					console.log(el,el.id)
 					cidstr +="<li cid='"+ el.id +"'><a href='####'>"+el.name +"</a></li>" 
 				});
 				$(".list_tit_box ul").eq(index).html(cidstr)
@@ -147,7 +138,6 @@ $(function(){
 			$("#page").find("ul").html("<li>1</li>");
 			$("#box").html("<ul class='clear'>1</ul>")
 		}
-		console.log(data)
 	//	默认显示第一页的内容
 		var str1=""
 		for (var x=0;x<num;x++) {
@@ -182,7 +172,6 @@ $(function(){
 		})
 //			加入购物车
 		$("#box ul li").on("mousedown",".shoucang",function(){
-			console.log($(this))
 			var cook =$.cookie('Username');
 			if(cook){
 //				判断购物车是否有内容
@@ -199,7 +188,6 @@ $(function(){
 				var objTostr = JSON.stringify(obj);	//把对象转换为字符串
 				$.cookie("joinlike",objTostr);			//创建cook，名为joinlike，值为转换为字符串的对象
 				var cookieObj = JSON.parse($.cookie("joinlike"));
-				console.log(cookieObj);
 			}else{
 				alert("登录后才可以收藏哦~")
 			}
@@ -236,19 +224,15 @@ $(function(){
 			}
 			$("#box ul").eq($(this).index()).html(strcont)
 			$("#box ul li").each(function(index,el){
-				console.log(index,el)
 				$(this).mouseenter(function(){
-					console.log(el)
 					$(this).find(".right_info1").stop().animate({"margin-top":"-100px"})
 				})
 				$(this).mouseleave(function(){
-					console.log("leave")
 					$(this).find(".right_info1").stop().animate({"margin-top":"0"})
 				})
 			})	
 		//			加入购物车
 			$("#box ul li").on("mousedown",".shoucang",function(){
-				console.log($(this))
 				var cook =$.cookie('Username');
 				if(cook){
 	//				判断购物车是否有内容
@@ -265,7 +249,6 @@ $(function(){
 					var objTostr = JSON.stringify(obj);	//把对象转换为字符串
 					$.cookie("joinlike",objTostr);			//创建cook，名为joinlike，值为转换为字符串的对象
 					var cookieObj = JSON.parse($.cookie("joinlike"));
-					console.log(cookieObj);
 				}else{
 					alert("登录后才可以收藏哦~")
 				}

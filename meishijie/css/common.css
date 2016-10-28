@@ -3,12 +3,9 @@ body{
 	font-family: "微软雅黑";
 	background: #fae8c8;
 }
-a{
+a,a:hover{
 	text-decoration: none;
 	color:#666;
-}
-a:hover{
-	text-decoration: none;
 }
 html, body, div, span, object, h1, h2, h3, h4, h5, h6, p,  em, img,  strong, sub, sup, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,input{
 	padding: 0;

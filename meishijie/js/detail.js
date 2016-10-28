@@ -12,7 +12,6 @@ $(function(){
 				}).done(function(data){
 					var data = JSON.parse(data)
 					var data = data.result.data[0]
-					console.log(data)
 					detail(data)			
 				})	
 			}
@@ -57,7 +56,6 @@ $(function(){
 					}
 					if(el2=="钟"){
 						var time=pathstlye_type[index1].split(/\-/)
-						console.log(time)
 						if(time[1]){
 							$(".detail_taste5 a").html(time[0]+"分钟")
 							$(".detail_taste6 a").html("<"+time[1])
@@ -151,7 +149,6 @@ $(function(){
 			$(".step_detail ul").html(step_str)
 			//	加入购物车
 			$(".detail_fav").mousedown(function(){
-				console.log("joninlike")
 				var cook =$.cookie('Username');
 				if(cook){
 		//				判断购物车是否有内容
@@ -168,7 +165,6 @@ $(function(){
 					var objTostr = JSON.stringify(obj);	//把对象转换为字符串
 					$.cookie("joinlike",objTostr);			//创建cook，名为joinlike，值为转换为字符串的对象
 					var cookieObj = JSON.parse($.cookie("joinlike"));
-					console.log(cookieObj);
 				}else{
 					alert("登录后才可以收藏哦~")
 				}
@@ -217,7 +213,6 @@ $(function(){
 		})		
 		$(".chat").off("mousedown").on("mousedown",".repeat",function(){
 			var ind = $(this).parent().parent().parent().parent().index()
-			console.log(ind)
 			$(".repeat1").removeClass("active")
 			$(".repeat1").eq(ind).addClass("active")
 			var str = ""			
